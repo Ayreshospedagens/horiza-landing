@@ -22,7 +22,7 @@ export const site: Site = {
   seo: {
     titulo: 'Horiza · Fluxo de caixa pessoal e orçamento familiar',
     descricao:
-      'Veja quanto vai ter no banco nos próximos meses. Orçamento familiar com cartão no mês da fatura, contas a vencer, metas com data e lançamento pela Siri. 7 dias grátis, sem cartão.',
+      'Veja quanto vai ter no banco nos próximos meses. Orçamento familiar com cartão no mês da fatura, contas a vencer, metas com data e lançamento por voz no iPhone e no Android. 7 dias grátis, sem cartão.',
   },
   hero: {
     titulo: 'Veja o seu dinheiro lá na frente.',
@@ -43,7 +43,7 @@ export const site: Site = {
   comoFunciona: {
     titulo: 'Como funciona',
     passos: [
-      { titulo: 'Lance do seu jeito', texto: 'Digite, importe uma planilha do Excel, fale com a Siri ou deixe o SMS de compra lançar sozinho (para cartões Itaú).' },
+      { titulo: 'Lance do seu jeito', texto: 'Digite, importe uma planilha do Excel, fale com o celular (Siri no iPhone ou atalho no Android) ou deixe o SMS de compra lançar sozinho (para cartões Itaú).' },
       { titulo: 'Planeje o mês', texto: 'Defina quanto vai para casa, mercado, escola e lazer. O Horiza separa o essencial do que dá para cortar.' },
       { titulo: 'Enxergue os próximos meses', texto: 'O fluxo de caixa mostra o saldo previsto no banco no fim de cada mês e avisa antes de ficar no vermelho.' },
     ],
@@ -68,7 +68,7 @@ export const site: Site = {
     titulo: 'O que o Horiza faz diferente',
     itens: [
       { titulo: 'O cartão cai no mês certo', texto: 'Compra no cartão entra no mês em que a fatura vence, considerando o dia da virada. O saldo previsto não engana.' },
-      { titulo: 'Lance falando', texto: '"E aí Siri, lançar no Horiza: paguei 120 de Pix na farmácia." Pronto, está lançado e classificado.' },
+      { titulo: 'Lance falando', texto: '"Paguei 120 de Pix na farmácia." Fale para a Siri no iPhone ou para o atalho no Android, e pronto: está lançado e classificado.' },
       { titulo: 'Corte com efeito nas metas', texto: 'Tire 40% do delivery e veja na hora a nova sobra e quantos meses antes cada meta fica pronta.' },
       { titulo: 'Projetos no planejamento', texto: 'Reforma, festa, viagem: monte o orçamento em parcelas e, ao aprovar, ele entra no seu planejamento.' },
     ],
@@ -87,17 +87,17 @@ export const site: Site = {
     titulo: 'Um plano, tudo incluso',
     mensal: { nome: 'Mensal', centavos: 1490, periodo: 'mês', nota: 'Cancele quando quiser.' },
     anual: { nome: 'Anual', centavos: 12990, periodo: 'ano', nota: 'Equivale a R$ 10,83 por mês.', selo: 'Economize 27%' },
-    incluso: ['Todas as telas e relatórios', 'Lançar pela Siri e por SMS (cartões Itaú)', 'Sem limite de lançamentos', '7 dias grátis, sem cartão de crédito'],
+    incluso: ['Todas as telas e relatórios', 'Lançar por voz (iPhone e Android) e por SMS (cartões Itaú)', 'Sem limite de lançamentos', '7 dias grátis, sem cartão de crédito'],
     rodape: 'Pagamento com cartão, processado pelo Stripe. O Horiza não guarda os dados do seu cartão.',
   },
   faq: {
     titulo: 'Perguntas frequentes',
     itens: [
-      { pergunta: 'O Horiza conecta com o meu banco?', resposta: 'Não. Você lança à mão, importa uma planilha do Excel, fala com a Siri ou, com cartões Itaú, deixa o SMS de compra lançar sozinho. Assim você não entrega a senha do banco para ninguém.' },
+      { pergunta: 'O Horiza conecta com o meu banco?', resposta: 'Não. Você lança à mão, importa uma planilha do Excel, fala com o celular (iPhone ou Android) ou, com cartões Itaú, deixa o SMS de compra lançar sozinho. Assim você não entrega a senha do banco para ninguém.' },
       { pergunta: 'Tem aplicativo para baixar no celular?', resposta: 'Não precisa. O Horiza funciona no navegador do celular e do computador. No celular, dá para colocar o atalho na tela inicial.' },
       { pergunta: 'Como funciona o teste grátis?', resposta: 'São 7 dias grátis, sem cartão de crédito. Se não assinar, você continua vendo seus dados, só não lança novos.' },
       { pergunta: 'Como pago e como cancelo?', resposta: 'O pagamento é no cartão, pelo Stripe. Você cancela quando quiser na tela Plano e continua com acesso até o fim do período pago.' },
-      { pergunta: 'O lançamento automático por SMS é só para cartões Itaú?', resposta: 'Por enquanto, sim. Para os outros cartões, use a Siri, o Excel ou o lançamento à mão.' },
+      { pergunta: 'O lançamento automático por SMS é só para cartões Itaú?', resposta: 'Por enquanto, sim. Para os outros cartões, use a voz, o Excel ou o lançamento à mão.' },
       { pergunta: 'O casal pode usar junto?', resposta: 'Sim, com uma conta e um login que os dois usam. Login separado para cada um ainda não existe.' },
       { pergunta: 'Meus dados estão seguros?', resposta: 'Cada conta enxerga só os próprios dados, com acesso por e-mail e senha. Seus dados não são vendidos nem compartilhados. Veja a política de privacidade.' },
     ],
