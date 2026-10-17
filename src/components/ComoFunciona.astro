@@ -1,0 +1,26 @@
+---
+import { site } from '../content/site';
+const c = site.comoFunciona;
+---
+<section id="como-funciona" class="section escuro">
+  <div class="container">
+    <h2 class="h2">{c.titulo}</h2>
+    <ol class="passos">
+      {c.passos.map((p, i) => (
+        <li>
+          <span class="num" aria-hidden="true">{i + 1}</span>
+          <h3 class="h3">{p.titulo}</h3>
+          <p>{p.texto}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+<style>
+  .escuro { background: var(--grafite); color: var(--offwhite); }
+  .passos { list-style: none; padding: 0; margin-top: 32px; display: grid; gap: 28px; }
+  .num { display: block; font-stretch: 72%; font-weight: 900; font-size: 64px; line-height: 1; color: var(--laranja); }
+  .h3 { margin-top: 8px; }
+  li p { margin-top: 6px; color: #C9CBD0; }
+  @media (min-width: 800px) { .passos { grid-template-columns: repeat(3, 1fr); gap: 32px; } }
+</style>

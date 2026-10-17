@@ -1,0 +1,40 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Dores from '../components/Dores.astro';
+import ComoFunciona from '../components/ComoFunciona.astro';
+import Telas from '../components/Telas.astro';
+import Demonstracao from '../components/Demonstracao.astro';
+import Diferenciais from '../components/Diferenciais.astro';
+import Sobre from '../components/Sobre.astro';
+import Planos from '../components/Planos.astro';
+import Faq from '../components/Faq.astro';
+import ChamadaFinal from '../components/ChamadaFinal.astro';
+import Footer from '../components/Footer.astro';
+import BarraFixaMobile from '../components/BarraFixaMobile.astro';
+import { site } from '../content/site';
+
+const faqLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: site.faq.itens.map((i) => ({ '@type': 'Question', name: i.pergunta, acceptedAnswer: { '@type': 'Answer', text: i.resposta } })),
+};
+---
+<Base title={site.seo.titulo} description={site.seo.descricao} jsonLd={faqLd}>
+  <Header />
+  <main>
+    <Hero />
+    <Dores />
+    <ComoFunciona />
+    <Telas />
+    <Demonstracao />
+    <Diferenciais />
+    <Sobre />
+    <Planos />
+    <Faq />
+    <ChamadaFinal />
+  </main>
+  <Footer />
+  <BarraFixaMobile />
+</Base>

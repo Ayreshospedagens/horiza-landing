@@ -1,0 +1,11 @@
+---
+import { site } from '../content/site';
+---
+<div id="barra-fixa" class="barra-fixa" hidden>
+  <a class="btn btn-primario" href={site.links.cadastro} data-utm data-track="cta_teste_click" data-local="barra-fixa">{site.hero.ctaTeste}</a>
+</div>
+<style>
+  .barra-fixa { position: fixed; left: 0; right: 0; bottom: 0; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); z-index: 30; }
+  .barra-fixa .btn { width: 100%; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+  @media (min-width: 900px) { .barra-fixa { display: none !important; } }
+</style>

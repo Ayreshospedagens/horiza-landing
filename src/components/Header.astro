@@ -1,0 +1,49 @@
+---
+import logo from '../assets/horiza-logo-negativo.svg';
+import { site } from '../content/site';
+const itens = [
+  ['#como-funciona', 'Como funciona'],
+  ['#planos', 'Preço'],
+  ['#perguntas', 'Perguntas'],
+];
+---
+<header class="topo-nav">
+  <div class="container barra">
+    <a href="#topo" class="logo" aria-label="Horiza, início">
+      <img src={logo.src} alt="Horiza" width="122" height="32" />
+    </a>
+    <nav class="links-desktop" aria-label="Seções">
+      {itens.map(([href, texto]) => <a href={href}>{texto}</a>)}
+      <a href={site.links.app}>Entrar</a>
+    </nav>
+    <a href={site.links.cadastro} class="btn btn-primario btn-mini" data-utm data-track="cta_teste_click" data-local="menu">Teste grátis</a>
+    <details class="menu-mobile">
+      <summary aria-label="Abrir menu"><span></span><span></span><span></span></summary>
+      <nav aria-label="Seções">
+        {itens.map(([href, texto]) => <a href={href}>{texto}</a>)}
+        <a href={site.links.app}>Entrar</a>
+        <a href={site.links.cadastro} data-utm data-track="cta_teste_click" data-local="menu-mobile">{site.hero.ctaTeste}</a>
+      </nav>
+    </details>
+  </div>
+</header>
+
+<style>
+  .topo-nav { position: absolute; inset: 0 0 auto 0; z-index: 20; color: var(--offwhite); }
+  .barra { display: flex; align-items: center; gap: 16px; height: 68px; }
+  .logo { margin-right: auto; display: flex; }
+  .links-desktop { display: none; gap: 24px; font-weight: 600; }
+  .links-desktop a { text-decoration: none; opacity: .9; }
+  .links-desktop a:hover { opacity: 1; color: var(--laranja); }
+  .btn-mini { min-height: 40px; padding: 8px 18px; font-size: 14px; display: none; }
+  .menu-mobile summary { list-style: none; cursor: pointer; width: 44px; height: 44px; display: grid; place-content: center; gap: 5px; border-radius: 12px; background: var(--grafite-2); }
+  .menu-mobile summary::-webkit-details-marker { display: none; }
+  .menu-mobile summary span { display: block; width: 22px; height: 2.5px; background: var(--offwhite); border-radius: 2px; }
+  .menu-mobile nav { position: absolute; right: var(--gutter); top: 64px; background: var(--offwhite); color: var(--grafite); border-radius: 20px; padding: 12px; display: grid; min-width: 230px; box-shadow: 0 20px 40px rgba(0,0,0,.35); }
+  .menu-mobile nav a { padding: 12px 14px; font-weight: 700; text-decoration: none; border-radius: 12px; }
+  .menu-mobile nav a:last-child { background: var(--laranja); color: var(--grafite); margin-top: 6px; text-align: center; }
+  @media (min-width: 900px) {
+    .links-desktop, .btn-mini { display: flex; }
+    .menu-mobile { display: none; }
+  }
+</style>

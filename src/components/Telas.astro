@@ -1,0 +1,72 @@
+---
+import { getImage } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+import { site } from '../content/site';
+const t = site.telas;
+const arquivos = import.meta.glob<{ default: ImageMetadata }>('../assets/prints/*.png', { eager: true });
+const img = (nome: string) => {
+  const a = arquivos[`../assets/prints/${nome}.png`];
+  if (!a) throw new Error(`Print ${nome} não encontrado`);
+  return a.default;
+};
+const itens = await Promise.all(
+  t.itens.map(async (i) => ({
+    ...i,
+    desktop: await getImage({ src: img(`${i.arquivo}-desktop`), width: 1200, format: 'webp' }),
+    celular: await getImage({ src: img(`${i.arquivo}-celular`), width: 420, format: 'webp' }),
+  })),
+);
+---
+<section id="telas" class="section">
+  <div class="container">
+    <h2 class="h2">{t.titulo}</h2>
+    <p class="lead apoio">{t.apoio}</p>
+    <div class="abas" role="tablist" aria-label="Telas do Horiza">
+      {itens.map((i, n) => (
+        <button type="button" role="tab" id={`aba-${i.arquivo}`} aria-controls={`painel-${i.arquivo}`} aria-selected={n === 0 ? 'true' : 'false'} tabindex={n === 0 ? 0 : -1}>{i.aba}</button>
+      ))}
+    </div>
+    {itens.map((i, n) => (
+      <div role="tabpanel" id={`painel-${i.arquivo}`} aria-labelledby={`aba-${i.arquivo}`} class="painel" hidden={n !== 0}>
+        <p class="legenda">{i.titulo}</p>
+        <picture>
+          <source media="(min-width: 768px)" srcset={i.desktop.src} />
+          <img src={i.celular.src} alt={i.alt} width={i.celular.attributes.width} height={i.celular.attributes.height} loading="lazy" decoding="async" />
+        </picture>
+      </div>
+    ))}
+  </div>
+</section>
+<script>
+  const abas = [...document.querySelectorAll<HTMLButtonElement>('#telas [role="tab"]')];
+  const ativar = (alvo: HTMLButtonElement) => {
+    for (const a of abas) {
+      const sel = a === alvo;
+      a.setAttribute('aria-selected', String(sel));
+      a.tabIndex = sel ? 0 : -1;
+      document.getElementById(a.getAttribute('aria-controls')!)!.hidden = !sel;
+    }
+  };
+  abas.forEach((a, i) => {
+    a.addEventListener('click', () => ativar(a));
+    a.addEventListener('keydown', (e) => {
+      const passo = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!passo) return;
+      const prox = abas[(i + passo + abas.length) % abas.length]!;
+      ativar(prox);
+      prox.focus();
+    });
+  });
+</script>
+<style>
+  .apoio { margin-top: 8px; font-size: 15px; }
+  .abas { margin-top: 24px; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+  .abas button { flex: none; font: inherit; font-weight: 700; font-size: 15px; padding: 10px 16px; border-radius: 999px; border: 1px solid var(--linha); background: var(--branco); color: var(--grafite); cursor: pointer; }
+  .abas button[aria-selected='true'] { background: var(--grafite); color: var(--offwhite); border-color: var(--grafite); }
+  .painel { margin-top: 20px; }
+  .legenda { font-weight: 700; font-size: 18px; }
+  picture img { margin: 16px auto 0; width: min(100%, 340px); height: auto; border-radius: 24px; border: 6px solid var(--grafite); box-shadow: 0 24px 48px rgba(22,24,29,.18); }
+  @media (min-width: 768px) {
+    picture img { width: 100%; border-radius: 14px; border: 1px solid var(--linha); }
+  }
+</style>

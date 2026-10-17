@@ -1,0 +1,29 @@
+---
+import logo from '../assets/horiza-logo-negativo.svg';
+import { site } from '../content/site';
+const wa = `${site.links.whatsapp}?text=${encodeURIComponent(site.whatsappMensagens.geral)}`;
+---
+<footer class="rodape">
+  <div class="container grade">
+    <img src={logo.src} alt="Horiza" width="122" height="32" />
+    <p>Seu dinheiro com direção.</p>
+    <nav aria-label="Contato">
+      <a href={site.links.instagram} target="_blank" rel="noopener">Instagram</a>
+      <a href={wa} target="_blank" rel="noopener" data-track="cta_whatsapp_click" data-local="rodape">WhatsApp</a>
+      <a href={`mailto:${site.links.email}`}>{site.links.email}</a>
+      <a href="/privacidade">Política de Privacidade</a>
+      <a href="/termos">Termos de Uso</a>
+      <button type="button" class="preferencias" data-preferencias-cookies>Preferências de cookies</button>
+    </nav>
+    <p class="responsavel">© 2026 Horiza · Joel Ayres</p>
+  </div>
+</footer>
+<style>
+  .rodape { background: var(--grafite); color: var(--offwhite); padding: 40px 0 110px; border-top: 1px solid var(--grafite-2); }
+  .grade { display: grid; gap: 14px; }
+  nav { display: flex; flex-wrap: wrap; gap: 10px 18px; font-weight: 600; }
+  nav a { opacity: .85; overflow-wrap: anywhere; }
+  .responsavel { font-size: .85rem; opacity: .7; }
+  .preferencias { font: inherit; font-weight: 600; color: inherit; opacity: .85; background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
+  @media (min-width: 900px) { .rodape { padding-bottom: 40px; } }
+</style>

@@ -1,0 +1,35 @@
+---
+import { Image } from 'astro:assets';
+import foto from '../assets/joel.jpg';
+import { site } from '../content/site';
+const s = site.sobre;
+const depoimentos = s.depoimentos.filter((d) => d.autorizado);
+---
+<section id="sobre" class="section sobre">
+  <div class="container grade">
+    <Image src={foto} alt={`${s.nome}, criador do Horiza`} widths={[320, 640]} sizes="(min-width: 900px) 300px, 60vw" class="foto" loading="lazy" />
+    <div>
+      <h2 class="h2">{s.titulo}</h2>
+      <p class="nome">{s.nome}</p>
+      {s.paragrafos.map((p) => <p class="lead par">{p}</p>)}
+      {depoimentos.length > 0 && (
+        <div class="depoimentos">
+          {depoimentos.map((d) => (
+            <blockquote><p>"{d.texto}"</p><footer>{d.autor}</footer></blockquote>
+          ))}
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+<style>
+  .sobre { background: var(--branco); }
+  .grade { display: grid; gap: 28px; align-items: center; }
+  .sobre :global(.foto) { width: min(60vw, 300px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; border: 6px solid var(--laranja); }
+  .nome { margin-top: 10px; font-weight: 800; color: var(--laranja-escuro); }
+  .par { margin-top: 14px; }
+  .depoimentos { margin-top: 24px; display: grid; gap: 12px; }
+  blockquote { margin: 0; background: var(--offwhite); border-radius: var(--raio); padding: 18px 20px; }
+  blockquote footer { margin-top: 8px; font-weight: 700; color: var(--cinza); }
+  @media (min-width: 900px) { .grade { grid-template-columns: 300px 1fr; gap: 56px; } }
+</style>

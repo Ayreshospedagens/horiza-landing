@@ -1,0 +1,23 @@
+---
+import { site } from '../content/site';
+const d = site.diferenciais;
+---
+<section id="diferenciais" class="section">
+  <div class="container">
+    <h2 class="h2">{d.titulo}</h2>
+    <div class="grade">
+      {d.itens.map((i) => (
+        <article class="card">
+          <h3 class="h3">{i.titulo}</h3>
+          <p>{i.texto}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .grade { margin-top: 32px; display: grid; gap: 14px; }
+  .card p { margin-top: 8px; color: var(--cinza); }
+  .h3::before { content: ''; display: block; width: 36px; height: 6px; background: var(--laranja); transform: skewY(-12deg); margin-bottom: 14px; }
+  @media (min-width: 800px) { .grade { grid-template-columns: repeat(2, 1fr); } }
+</style>

@@ -1,0 +1,32 @@
+---
+import { site } from '../content/site';
+const d = site.demo;
+const wa = `${site.links.whatsapp}?text=${encodeURIComponent(site.whatsappMensagens.demo)}`;
+const video = site.flags.videoDemoUrl;
+---
+<section id="demonstracao" class="section demo">
+  <div class={`container grade ${video ? 'com-video' : ''}`}>
+    <div>
+      <h2 class="h2">{d.titulo}</h2>
+      <p class="lead apoio">{d.apoio}</p>
+      <div class="acoes">
+        <a class="btn btn-escuro" href={site.links.cadastro} data-utm data-track="cta_teste_click" data-local="demo">{site.hero.ctaTeste}</a>
+        <a class="btn btn-contorno" href={wa} target="_blank" rel="noopener" data-track="cta_whatsapp_click" data-local="demo">{d.ctaWhatsapp}</a>
+      </div>
+    </div>
+    {video && (
+      <div id="video-demo" class="video">
+        <iframe src={video} title="Demonstração do Horiza" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    )}
+  </div>
+</section>
+<style>
+  .demo { background: var(--laranja); color: var(--grafite); }
+  .apoio { margin-top: 12px; color: var(--grafite); max-width: 620px; }
+  .acoes { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px; }
+  .grade { display: grid; gap: 28px; }
+  .video { aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden; background: var(--grafite); }
+  .video iframe { width: 100%; height: 100%; border: 0; }
+  @media (min-width: 900px) { .com-video { grid-template-columns: 1fr 1.2fr; align-items: center; } }
+</style>

@@ -1,0 +1,43 @@
+---
+import { site } from '../content/site';
+const p = site.planos;
+const brl = (centavos: number) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(centavos / 100).replace(/ /g, ' ');
+const planos = [
+  { id: 'mensal', ...p.mensal, selo: null as string | null },
+  { id: 'anual', ...p.anual },
+];
+---
+<section id="planos" class="section planos">
+  <div class="container">
+    <h2 class="h2">{p.titulo}</h2>
+    <div class="grade">
+      {planos.map((pl) => (
+        <article class={`card ${pl.id === 'anual' ? 'anual' : ''}`}>
+          <div class="cabeca">
+            <h3 class="h3">{pl.nome}</h3>
+            {pl.selo && <span class="selo">{pl.selo}</span>}
+          </div>
+          <p class="preco">{brl(pl.centavos)}<span>/{pl.periodo}</span></p>
+          <p class="nota">{pl.nota}</p>
+          <ul class="incluso">{p.incluso.map((i) => <li>{i}</li>)}</ul>
+          <a class={`btn ${pl.id === 'anual' ? 'btn-primario' : 'btn-escuro'}`} href={site.links.cadastro} data-utm data-track="cta_teste_click" data-local={`planos-${pl.id}`}>{site.hero.ctaTeste}</a>
+        </article>
+      ))}
+    </div>
+    <p class="rodape">{p.rodape}</p>
+  </div>
+</section>
+<style>
+  .grade { margin-top: 32px; display: grid; gap: 16px; max-width: 860px; }
+  .card { display: grid; gap: 12px; align-content: start; }
+  .anual { border: 2px solid var(--laranja); }
+  .cabeca { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .selo { background: var(--laranja); color: var(--grafite); font-weight: 800; font-size: 13px; padding: 4px 10px; border-radius: 999px; }
+  .preco { font-stretch: 72%; font-weight: 900; font-size: 56px; line-height: 1; }
+  .preco span { font-stretch: 100%; font-size: 18px; font-weight: 700; color: var(--cinza); margin-left: 4px; }
+  .nota { color: var(--cinza); font-weight: 600; }
+  .incluso { padding-left: 0; list-style: none; display: grid; gap: 6px; margin: 4px 0 8px; }
+  .incluso li::before { content: '✓ '; color: var(--laranja-escuro); font-weight: 800; }
+  .rodape { margin-top: 18px; color: var(--cinza); font-size: 14px; }
+  @media (min-width: 760px) { .grade { grid-template-columns: 1fr 1fr; } }
+</style>

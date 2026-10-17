@@ -1,0 +1,17 @@
+---
+import { site } from '../content/site';
+---
+<section id="final" class="section final">
+  <div class="container centro">
+    <h2 class="h2">{site.final.titulo}</h2>
+    <p class="lead apoio">{site.final.apoio}</p>
+    <a class="btn btn-primario" href={site.links.cadastro} data-utm data-track="cta_teste_click" data-local="final">{site.hero.ctaTeste}</a>
+    <p class="selos">{site.hero.selos.join(' · ')}</p>
+  </div>
+</section>
+<style>
+  .final { background: var(--grafite); color: var(--offwhite); }
+  .centro { display: grid; justify-items: center; text-align: center; gap: 18px; }
+  .apoio { color: #C9CBD0; }
+  .selos { font-size: 14px; font-weight: 600; color: #C9CBD0; }
+</style>

@@ -1,0 +1,28 @@
+---
+import { site } from '../content/site';
+const wa = `${site.links.whatsapp}?text=${encodeURIComponent(site.whatsappMensagens.geral)}`;
+---
+<section id="perguntas" class="section faq">
+  <div class="container estreito">
+    <h2 class="h2">{site.faq.titulo}</h2>
+    <div class="lista">
+      {site.faq.itens.map((f) => (
+        <details><summary>{f.pergunta}</summary><p>{f.resposta}</p></details>
+      ))}
+    </div>
+    <p class="fecho"><a href={wa} target="_blank" rel="noopener" data-track="cta_whatsapp_click" data-local="faq">{site.faq.fecho}</a></p>
+  </div>
+</section>
+<style>
+  .faq { background: var(--branco); }
+  .estreito { max-width: 780px; }
+  .lista { margin-top: 24px; display: grid; gap: 10px; }
+  details { background: var(--offwhite); border-radius: var(--raio); padding: 0 18px; }
+  summary { cursor: pointer; font-weight: 700; padding: 18px 0; list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '+'; font-weight: 800; color: var(--laranja-escuro); }
+  details[open] summary::after { content: '−'; }
+  details p { padding-bottom: 18px; color: var(--cinza); }
+  .fecho { margin-top: 20px; font-weight: 700; }
+  .fecho a { color: var(--laranja-escuro); }
+</style>

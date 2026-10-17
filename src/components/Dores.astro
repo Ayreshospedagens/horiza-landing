@@ -1,0 +1,24 @@
+---
+import { site } from '../content/site';
+const d = site.dores;
+---
+<section id="dores" class="section">
+  <div class="container">
+    <h2 class="h2">{d.titulo}</h2>
+    <div class="cartoes">
+      {d.itens.map((i) => (
+        <article class="card">
+          <h3 class="h3">{i.titulo}</h3>
+          <p>{i.texto}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .h2 { max-width: 900px; }
+  .cartoes { margin-top: 32px; display: grid; gap: 14px; }
+  .card { border-top: 4px solid var(--laranja); }
+  .card p { margin-top: 8px; color: var(--cinza); }
+  @media (min-width: 800px) { .cartoes { grid-template-columns: repeat(3, 1fr); } }
+</style>
