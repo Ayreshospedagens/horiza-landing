@@ -1,0 +1,36 @@
+/* Archivo variável com eixo de largura: títulos condensados (wdth 72) e texto normal (wdth 100) */
+@import '@fontsource-variable/archivo/wdth.css';
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body {
+  margin: 0; font-family: var(--fonte); font-weight: 450; color: var(--grafite);
+  background: var(--offwhite); line-height: 1.5;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+em, i { font-style: normal; }
+img { max-width: 100%; height: auto; display: block; }
+h1, h2, h3, p, ul, ol { margin: 0; }
+a { color: inherit; }
+.container { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+.section { padding: 72px 0; }
+.h1, .h2 { font-stretch: 72%; font-weight: 850; text-transform: uppercase; line-height: 0.98; letter-spacing: -0.01em; }
+.h1 { font-size: clamp(40px, 9vw, 76px); }
+.h2 { font-size: clamp(32px, 6vw, 52px); }
+.h3 { font-weight: 700; font-size: 20px; line-height: 1.2; letter-spacing: -0.01em; }
+.lead { font-size: clamp(17px, 2.4vw, 20px); line-height: 1.45; color: var(--cinza); }
+.destaque { color: var(--laranja); }
+.card { background: var(--branco); border-radius: var(--raio); padding: 24px; border: 1px solid var(--linha); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; padding: 14px 24px; border-radius: 999px; font-weight: 700;
+  font-size: 16px; text-decoration: none; text-align: center;
+  border: 2px solid transparent; cursor: pointer; max-width: 100%;
+}
+.btn-primario { background: var(--laranja); color: var(--grafite); }
+.btn-primario:hover { background: var(--laranja-escuro); color: var(--branco); }
+.btn-escuro { background: var(--grafite); color: var(--offwhite); }
+.btn-contorno { border-color: currentColor; background: transparent; }
+.btn:focus-visible, a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid var(--laranja); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }

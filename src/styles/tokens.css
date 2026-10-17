@@ -1,0 +1,16 @@
+:root {
+  --grafite: #16181D;
+  --grafite-2: #2A2D34;
+  --laranja: #FF5A36;
+  --laranja-escuro: #D9431F;
+  --offwhite: #F4F4F1;
+  --branco: #FFFFFF;
+  --cinza: #5C6068;
+  --cinza-claro: #8A8F98;
+  --linha: #E2E2DC;
+  --fonte: 'Archivo Variable', system-ui, sans-serif;
+  --raio: 16px;
+  --raio-lg: 24px;
+  --max: 1120px;
+  --gutter: 16px;
+}
