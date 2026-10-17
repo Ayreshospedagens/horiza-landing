@@ -1,4 +1,5 @@
 import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
 import { site } from './site';
 
 function textos(valor: unknown): string[] {
@@ -44,5 +45,24 @@ describe('regras de conteúdo', () => {
   });
   it('telas usam os prints da conta de demonstração', () => {
     expect(site.telas.itens.map((t) => t.arquivo)).toEqual(['fluxo', 'onde-cortar', 'metas', 'planejamento', 'dashboard']);
+  });
+});
+
+describe('documentos legais', () => {
+  const termos = readFileSync('src/content/termos.md', 'utf8');
+  const priv = readFileSync('src/content/privacidade.md', 'utf8');
+  it('são do Horiza, em nome do Joel, sem travessão', () => {
+    for (const doc of [termos, priv]) {
+      expect(doc).toContain('Joel Ayres');
+      expect(doc).toContain('contato@usehoriza.com.br');
+      expect(doc).not.toContain('—');
+      expect(doc).not.toMatch(/gestor da temporada|imóve|hóspede|airbnb|cal\.com/i);
+    }
+  });
+  it('privacidade cita os serviços usados e os direitos', () => {
+    for (const t of [/Stripe/, /Supabase/, /Vercel/, /Anthropic/, /SMS/, /exclus/i, /cookies/i, /LGPD/, /13\.709/]) expect(priv).toMatch(t);
+  });
+  it('termos trazem preço, teste e cancelamento iguais ao site', () => {
+    for (const t of [/R\$ 14,90/, /R\$ 129,90/, /7 dias/, /cancel/i, /sem cartão/i]) expect(termos).toMatch(t);
   });
 });

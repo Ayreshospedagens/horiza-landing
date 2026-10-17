@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import { Content } from '../content/termos.md';
+---
+<Base title="Termos de Uso · Horiza" description="Condições de uso do Horiza.">
+  <main class="container legal">
+    <p><a href="/">← Voltar para o início</a></p>
+    <Content />
+  </main>
+</Base>
+<style>
+  .legal { max-width: 760px; padding-top: 48px; padding-bottom: 72px; }
+  .legal :global(h1) { font-stretch: 72%; font-weight: 850; text-transform: uppercase; font-size: clamp(36px, 7vw, 56px); line-height: 1; margin: 16px 0 20px; }
+  .legal :global(h2) { font-weight: 800; font-size: 22px; margin: 32px 0 8px; }
+  .legal :global(p), .legal :global(ul) { margin-top: 12px; }
+  .legal :global(li) { margin-top: 6px; }
+  .legal a { color: var(--laranja-escuro); font-weight: 700; }
+</style>
