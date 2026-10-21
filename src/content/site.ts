@@ -45,7 +45,7 @@ export const site: Site = {
     passos: [
       { titulo: 'Lance do seu jeito', texto: 'Digite, importe uma planilha do Excel, fale com o celular (Siri no iPhone ou atalho no Android) ou deixe o SMS de compra lançar sozinho (para cartões Itaú).' },
       { titulo: 'Planeje o mês', texto: 'Defina quanto vai para casa, mercado, escola e lazer. O Horiza separa o essencial do que dá para cortar.' },
-      { titulo: 'Enxergue os próximos meses', texto: 'O fluxo de caixa mostra o saldo previsto no banco no fim de cada mês e avisa antes de ficar no vermelho.' },
+      { titulo: 'Enxergue os próximos meses', texto: 'O fluxo de caixa mostra o saldo previsto no banco no fim de cada mês e deixa em vermelho o mês que fecha negativo.' },
     ],
   },
   telas: {
@@ -77,7 +77,7 @@ export const site: Site = {
     titulo: 'Quem fez o Horiza',
     nome: 'Joel Ayres',
     paragrafos: [
-      'Criei o Horiza para organizar o dinheiro da minha família. Eu queria saber, hoje, se março ia fechar no azul, e nenhum app mostrava isso.',
+      'Criei o Horiza para organizar o dinheiro da minha família. Eu queria saber, hoje, se março ia fechar no azul, e nenhum app que eu testei mostrava isso.',
       'Os colegas de trabalho viram, pediram para usar, e o Horiza virou o que é hoje: um planejamento que olha para a frente.',
     ],
     // Só frases reais, com autorização de cada testador.
@@ -99,7 +99,7 @@ export const site: Site = {
       { pergunta: 'Como pago e como cancelo?', resposta: 'O pagamento é no cartão, pelo Stripe. Você cancela quando quiser na tela Plano e continua com acesso até o fim do período pago.' },
       { pergunta: 'O lançamento automático por SMS é só para cartões Itaú?', resposta: 'Por enquanto, sim. Para os outros cartões, use a voz, o Excel ou o lançamento à mão.' },
       { pergunta: 'O casal pode usar junto?', resposta: 'Sim, com uma conta e um login que os dois usam. Login separado para cada um ainda não existe.' },
-      { pergunta: 'Meus dados estão seguros?', resposta: 'Cada conta enxerga só os próprios dados, com acesso por e-mail e senha. Seus dados não são vendidos nem compartilhados. Veja a política de privacidade.' },
+      { pergunta: 'Meus dados estão seguros?', resposta: 'Cada conta enxerga só os próprios dados, com acesso por e-mail e senha. Seus dados não são vendidos nem usados para publicidade de terceiros. Veja a política de privacidade.' },
     ],
     fecho: 'Ficou com dúvida? Chame no WhatsApp.',
   },

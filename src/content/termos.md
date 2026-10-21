@@ -25,7 +25,7 @@ Toda conta nova tem 7 dias grátis, sem cartão de crédito. Ao fim do teste, se
 
 O pagamento é feito com cartão de crédito, processado pelo Stripe. A assinatura renova automaticamente ao fim de cada período, pelo mesmo valor do plano escolhido, até você cancelar. Se houver mudança de preço, você será avisado com antecedência, e o novo valor só vale a partir da renovação seguinte.
 
-Se um pagamento for recusado, você tem alguns dias para atualizar o cartão antes de a conta voltar ao modo só de leitura.
+Se um pagamento for recusado, você tem 7 dias para atualizar o cartão antes de a conta voltar ao modo só de leitura.
 
 ## Cancelamento
 
